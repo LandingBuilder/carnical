@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carniçal</title>
+    <meta name="description" content="Especialistas em criação de Landing Pages de alta performance. Transforme tráfego em vendas. Fale com a LP Builder.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+</head>
+<body>
+<img src="src/backgroud-image.jpg" alt="background" class="background">
+    <main class="profile-card">
+        <header class="profile-header">
+            <img src="src/logo.jpg" alt="Logo da LP Builder - Criação de Landing Pages" class="profile-image">
+            
+            <h1 class="brand-name">Carniçal</h1>
+            
+            <!-- <p class="tagline"><strong>bandacarnical@gmail.com</p> -->
+
+            <div class="service-highlight">
+                Banda de Black e Death metal — Interior de São Paulo, Brasil
+            </div>
+
+        </header>
+        
+        <section class="links-section">
+            <a href="https://wa.me/5519920037730" target="_blank" class="link-button cta-primary">
+                <i class="fab fa-whatsapp"></i> Fale conosco no WhatsApp
+            </a>
+
+            <a href="https://www.youtube.com/@carnical2006" target="_blank" class="link-button">
+                <i class="fab fa-youtube"></i> Canal no YouTube
+            </a>
+
+            <a href="https://open.spotify.com/intl-pt/artist/29IVxdBViY7uy8PGL0cSlf?nd=1&dlsi=ea5cfd64feb64994" target="_blank" class="link-button">
+                <i class="fab fa-spotify"></i> Ouça no Spotify
+            </a>
+
+            <a href="https://www.facebook.com/bandacarnical?mibextid=ZbWKwL" target="_blank" class="link-button">
+                <i class="fab fa-facebook"></i> Siga-nos no Facebook
+            </a>
+
+            <a href="https://www.tiktok.com/@_carnical?_t=8r1csk8fiso&_r=1" target="_blank" class="link-button">
+                <i class="fab fa-tiktok"></i> Siga no TikTok
+            </a>
+            
+            <a href="https://collshp.com/carnical" target="_blank" class="link-button">
+                <i class="fas fa-shopping-cart"></i> Loja oficial 
+            </a>
+            
+                <a href="https://www.instagram.com/lp.builder/" target="_blank" class="link-button">
+                    <i class="fab fa-instagram"></i> Banda
+                </a>
+
+                <a href="https://www.instagram.com/sototos_/" target="_blank" class="link-button">
+                    <i class="fab fa-instagram"></i> Guitarrista / Vocal
+                </a>
+
+                <a href="https://www.instagram.com/sombra.batera/" target="_blank" class="link-button">
+                    <i class="fab fa-instagram"></i> Baterista
+                </a>
+
+            <button class="link-button" onclick="copyEmail()">
+                <i class="fas fa-envelope"></i> bandacarnical@gmail.com
+            </button>
+
+        </section>
+        
+        <footer class="site-footer">
+            <p>&copy; 2025 LP Builder. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+
+    <script>
+        function copyEmail() {
+            const email = "bandacarnical@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const button = document.querySelector('[onclick="copyEmail()"]');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Email copiado!';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            }).catch(() => {
+                alert("Erro ao copiar email");
+            });
+        }
+    </script>
+
+</body>
+</html>

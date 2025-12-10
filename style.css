@@ -1,0 +1,546 @@
+/*==================================
+  CSS REVISADO - LP BUILDER PREMIUM
+  ==================================*/
+
+/* 1. RESET E VARIÁVEIS GLOBAIS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+:root {
+    /* Paleta de Cores Death Metal (Preto + Branco + Vermelho) */
+    --color-dark: #000000; /* Preto profundo (Fundo) */
+    --color-primary: #DC143C; /* Vermelho crimsão (Agressividade/Poder) */
+    --color-secondary: #FF0000; /* Vermelho brilhante (Destaque/Ação) */
+    --color-text: #FFFFFF;
+    --color-white: #FFFFFF;
+    --color-accent: #1A1A1A; /* Cinza escuro para variações */
+    
+    /* Tipografia */
+    --font-heading: 'Poppins', sans-serif;
+    
+    /* Sombras */
+    --shadow-deep: 0 10px 30px rgba(220, 20, 60, 0.4);
+}
+
+/* 2. CONFIGURAÇÃO DA TELA (100% VISÍVEL) */
+html {
+    height: 100vh; /* Garante que o elemento raiz tenha 100% da altura da viewport */
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -1; /* Coloca a imagem de fundo atrás do conteúdo */
+    opacity: 0.2;
+    will-change: transform;
+    content-visibility: auto;
+}
+
+body {
+    min-height: 100vh; 
+    width: 100%;
+    overflow-y: auto; 
+    overflow-x: hidden;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    
+    padding: 60px 20px; 
+    
+    font-family: var(--font-heading);
+    color: var(--color-text);
+    line-height: 1.6;
+    background: var(--color-dark);
+}
+
+/* 3. CARD PRINCIPAL (PROFILE-CARD) */
+.profile-card {
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    padding: 40px 30px;
+    background: rgba(0, 0, 0, 0.9);
+    border-radius: 25px;
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-deep), inset 0 0 20px rgba(220, 20, 60, 0.15);
+    position: relative;
+    z-index: 1;
+    margin-top: auto; 
+    margin-bottom: auto; /* Para centralização em media queries menores */
+}
+
+/* 4. HEADER E IMAGEM */
+.profile-image {
+    width: 140px; 
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: none;
+    
+    /* Sombra uniforme e glow contínuo */
+    box-shadow: 
+        0 0 0 3px var(--color-secondary),
+        0 0 0 6px var(--color-primary),
+        0 0 20px var(--color-primary),
+        0 10px 30px rgba(220, 20, 60, 0.5);
+        
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: logo-glow 3s ease-in-out infinite;
+}
+
+/* Efeito de Expansão de Luz no Logo - Hover */
+.profile-image:hover {
+    transform: scale(1.1); 
+    animation: none;
+    box-shadow: 
+        0 0 0 5px var(--color-secondary),
+        0 0 0 10px var(--color-primary),
+        0 0 30px 15px var(--color-primary),
+        0 0 40px 20px rgba(255, 0, 0, 0.3),
+        0 15px 40px rgba(220, 20, 60, 0.8);
+}.brand-name {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--color-white);
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Sombra sutil */
+}
+
+.tagline {
+    font-size: 1em;
+    font-weight: 300;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.service-highlight {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 35px;
+    padding: 10px 15px;
+    background: rgba(220, 20, 60, 0.1);
+    border-radius: 10px;
+    border: 1px solid var(--color-primary);
+    color: var(--color-text);
+}
+
+.highlight-text {
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px var(--color-secondary), 0 0 15px rgba(255, 0, 0, 0.5); 
+}
+
+/* 5.1 LINK BUTTONS */
+.links-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* INSTAGRAM MENU - ACCORDION STYLE */
+.insta-menu {
+    width: 100%;
+}
+
+.insta-header {
+    width: 100%;
+}
+
+.insta-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    padding: 18px 20px;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+}
+
+.insta-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.insta-label i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.insta-toggle i:last-child {
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+    position: absolute;
+    right: 20px;
+}
+
+.insta-toggle:active {
+    transform: translateY(0px) scale(0.98); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .insta-toggle:hover {
+        background-color: #8B0000;
+        transform: translateY(-4px); 
+        box-shadow: 0 8px 20px rgba(220, 20, 60, 0.6);
+    }
+}
+
+.insta-items {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 0;
+    margin-top: 0;
+}
+
+.insta-items.show {
+    max-height: 500px;
+    padding-top: 18px;
+}
+
+.insta-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+}
+
+.insta-item i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.insta-item:active {
+    transform: translateY(0px) scale(0.98); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .insta-item:hover {
+        background-color: #8B0000;
+        transform: translateY(-4px); 
+        box-shadow: 0 8px 20px rgba(220, 20, 60, 0.6);
+    }
+}
+
+.link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-primary); 
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 18px 20px;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    line-height: 1.6;
+}
+
+.link-button:is(a, button) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.link-button i {
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+/* Efeito de Clique (Active State) - Profissionalismo */
+.link-button:active {
+    transform: translateY(0px) scale(0.98); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    transition: none; 
+}
+
+/* Efeito Hover Aprimorado (apenas para telas não-touch) */
+@media (hover: hover) and (pointer: fine) {
+    .link-button:hover {
+        background-color: #8B0000;
+        transform: translateY(-4px); 
+        box-shadow: 0 8px 20px rgba(220, 20, 60, 0.6);
+    }
+}
+
+
+/* 6. CTA PRINCIPAL (DESTAQUE NEON) */
+.cta-primary {
+    background: var(--color-secondary); 
+    color: var(--color-dark); 
+    font-size: 1.1em;
+    padding: 18px 20px;
+    border: 2px solid var(--color-white);
+    animation: cta-pulse 2s infinite ease-out;
+}
+
+.cta-primary:hover {
+    background: var(--color-white);
+    transform: scale(1.05); 
+    color: var(--color-primary);
+    box-shadow: 0 0 20px var(--color-primary);
+    animation: none;
+}
+
+/* Botão de Destaque Secundário (ex: Depoimentos) */
+.link-secondary {
+    background: transparent;
+    border: 1px solid var(--color-primary);
+    opacity: 0.8;
+}
+
+.link-secondary:hover {
+    background: var(--color-primary);
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* 7. ANIMAÇÕES */
+@keyframes logo-glow {
+    0%, 100% {
+        box-shadow: 
+            0 0 0 3px var(--color-secondary),
+            0 0 0 6px var(--color-primary),
+            0 0 15px var(--color-primary),
+            0 10px 25px rgba(220, 20, 60, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 0 0 3px var(--color-secondary),
+            0 0 0 6px var(--color-primary),
+            0 0 30px 5px var(--color-primary),
+            0 0 40px 10px rgba(255, 0, 0, 0.3),
+            0 15px 35px rgba(220, 20, 60, 0.6);
+    }
+}
+
+@keyframes cta-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+}
+
+/* 8. RODAPÉ */
+.site-footer {
+    margin-top: 40px;
+    font-size: 0.75em;
+    opacity: 0.7;
+    font-weight: 300;
+    padding-top: 20px;
+    border-top: 1px solid rgba(220, 20, 60, 0.3);
+}
+
+/* 9. MEDIA QUERY PARA CELULARES (AJUSTE FINO) */
+@media (max-width: 480px) {
+    body {
+        padding: 40px 15px; /* Diminui o padding do body em telas estreitas */
+    }
+    
+    .profile-image {
+        width: 120px; 
+        height: 120px;
+        margin-bottom: 20px;
+    }
+    
+    .brand-name {
+        font-size: 1.8em;
+    }
+    
+    .tagline {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .service-highlight {
+        font-size: 1em;
+        padding: 8px 10px;
+        margin-bottom: 25px;
+    }
+
+    .link-button {
+        padding: 14px 15px;
+        font-size: 0.95em;
+    }
+
+    .cta-primary {
+        padding: 16px 15px;
+        font-size: 1em;
+    }
+}
+
+/* TABLETS E TELAS MÉDIAS (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    body {
+        padding: 50px 25px;
+    }
+    
+    .profile-card {
+        max-width: 420px;
+        padding: 35px 25px;
+    }
+    
+    .profile-image {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 22px;
+    }
+    
+    .brand-name {
+        font-size: 2em;
+    }
+    
+    .tagline {
+        font-size: 0.95em;
+        margin-bottom: 18px;
+    }
+    
+    .service-highlight {
+        font-size: 1.05em;
+        padding: 9px 12px;
+        margin-bottom: 30px;
+    }
+    
+    .link-button {
+        padding: 16px 18px;
+        font-size: 0.98em;
+    }
+}
+
+/* TELAS GRANDES E DESKTOP (769px+) */
+@media (min-width: 769px) {
+    body {
+        padding: 80px 40px;
+    }
+    
+    .profile-card {
+        max-width: 500px;
+        padding: 50px 40px;
+    }
+    
+    .profile-image {
+        width: 160px;
+        height: 160px;
+        margin-bottom: 30px;
+    }
+    
+    .brand-name {
+        font-size: 2.5em;
+    }
+    
+    .service-highlight {
+        font-size: 1.15em;
+        padding: 12px 16px;
+        margin-bottom: 40px;
+    }
+}
+
+/* OTIMIZAÇÃO PARA LANDSCAPE MOBILE (hauteur < 600px) */
+@media (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 20px 15px;
+        min-height: auto;
+    }
+    
+    .profile-card {
+        margin: auto 0;
+    }
+    
+    .profile-image {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+    }
+    
+    .brand-name {
+        font-size: 1.5em;
+        margin-bottom: 3px;
+    }
+    
+    .tagline {
+        font-size: 0.85em;
+        margin-bottom: 10px;
+    }
+    
+    .service-highlight {
+        font-size: 0.95em;
+        padding: 6px 10px;
+        margin-bottom: 20px;
+    }
+    
+    .link-button {
+        padding: 12px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* OTIMIZAÇÃO PARA DISPOSITIVOS COM PIXEL RATIO ALTO (Retina, etc) */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .background {
+        /* Garante que a imagem não fica pixelizada */
+        image-rendering: -webkit-optimize-contrast;
+    }
+    
+    .profile-card {
+        border-width: 2px;
+        box-shadow: var(--shadow-deep), inset 0 0 20px rgba(220, 20, 60, 0.15);
+    }
+}
